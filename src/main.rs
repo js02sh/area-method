@@ -1,4 +1,4 @@
-
+use std::io;
 
 struct Rectangle {
     width: u32, 
@@ -52,4 +52,51 @@ fn main() {
     println!("Area of {}x{} is {}", o.width, o.height, o.width*o.height);
     j.show();
     k.show();
+
+    loop {
+        println!("Welcome to the Area Calculator");
+        println!("r: Rectangle // t: Triangle // q: for end");
+        let mut ty = String::new();
+        io::stdin().read_line(&mut ty)
+            .expect("Faild to read line");
+
+        let ty = ty.trim();
+        match ty {
+            "q" => {
+                println!("See you later..");
+                break; // Exit the loop if 'q' is entered
+            }
+            "r" => {
+                println!("Welclome to the Rectangle calculator");
+                println!("Write Width:");
+                let mut w = String::new();
+                io::stdin().read_line(&mut w).expect("Faild to read line");
+                let w: u32 = w.trim().parse().expect("input num pls");
+                println!("Write Height:");
+                let mut h = String::new();
+                io::stdin().read_line(&mut h).expect("Faild to read line");
+                let h: u32 = h.trim().parse().expect("input num pls");
+
+                let r = Rectangle::new(w,h);
+                r.show();
+            }
+            "t" => {
+                println!("Welclome to the Triangle calculator");
+                println!("Write Width:");
+                let mut w = String::new();
+                io::stdin().read_line(&mut w).expect("Faild to read line");
+                let w: f32 = w.trim().parse().expect("input num pls");
+                println!("Write Height:");
+                let mut h = String::new();
+                io::stdin().read_line(&mut h).expect("Faild to read line");
+                let h: f32 = h.trim().parse().expect("input num pls");
+
+                let r = Triangle::new(w,h);
+                r.show();
+            }
+            _ => print!("bye")
+        }
+
+        
+    }
 }

@@ -52,19 +52,19 @@ impl Triangle {
 struct Circle {
     diameter: f32,
 }
-// Implement methods for the Triangle struct
+// Implement methods for the Circle struct
 impl Circle {
-    // Constructor to create a new Triangle
+    // Constructor to create a new Circle
     fn new(diameter: f32) -> Circle {
         Circle {
             diameter,
         }
     }
-    // Method to calculate the area of the Triangle
+    // Method to calculate the area of the Circle
     fn area(&self) -> f32 {
         self.diameter.powf(2.0) * PI / 4.0
     }
-    // Method to display information about the Triangle
+    // Method to display information about the Circle
     fn show(&self) {
         println!("Area of Circle diameter{} is {}", self.diameter, self.area());
     }
@@ -82,7 +82,7 @@ fn main() {
     loop {
         println!("Welcome to the Area Calculator");
         println!("r: Rectangle // t: Triangle // c: Circle // q: for end");
-        
+
         let mut ty = String::new();
         io::stdin().read_line(&mut ty).expect("Failed to read line");
         let ty = ty.trim();
